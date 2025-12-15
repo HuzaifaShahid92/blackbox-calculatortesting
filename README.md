@@ -1,12 +1,10 @@
 # Blackbox Testing Assignment - Calculator Application
 
 ## Overview
-This project demonstrates comprehensive **blackbox testing** of a simple Calculator application. Blackbox testing is performed without knowledge of internal implementation, focusing on functional requirements and external behavior.
+This project demonstrates **blackbox testing** of a Calculator application. Blackbox testing focuses on testing functionality without knowledge of internal implementation.
 
 **Course:** Software Quality Engineering  
-**Assignment:** Assignment 2 - Blackbox Testing  
-**Student:** Huzaifa  
-**Date:** December 2025
+**Assignment:** Assignment 2 - Blackbox Testing
 
 ---
 
@@ -14,10 +12,8 @@ This project demonstrates comprehensive **blackbox testing** of a simple Calcula
 
 ```
 blackbox_testing_assignment/
-│
-├── calculator.py                 # Project source code - Calculator application
-├── test_calculator.py            # Test cases - 52 comprehensive blackbox tests
-├── BLACKBOX_TESTING_REPORT.md   # Detailed testing report with checklist
+├── calculator.py                 # Calculator application code
+├── test_calculator.py            # 15 blackbox test cases
 ├── README.md                     # This file
 └── .gitignore                    # Git configuration
 ```
@@ -128,32 +124,29 @@ Errors: 0
 ## Test Statistics
 
 ### Test Case Count
-| Category | Count |
-|----------|-------|
-| Addition Tests | 7 |
-| Subtraction Tests | 7 |
-| Multiplication Tests | 7 |
-| Division Tests | 7 |
-| Square Tests | 5 |
-| Square Root Tests | 6 |
-| Power Tests | 6 |
-| Clear Tests | 2 |
-| Result Persistence Tests | 2 |
-| Integration Tests | 2 |
-| **TOTAL** | **52** |
+| Test | Description |
+|------|-------------|
+| test_add | Add two positive numbers |
+| test_add_negative | Add two negative numbers |
+| test_subtract | Subtract two positive numbers |
+| test_subtract_negative | Subtract resulting in negative |
+| test_multiply | Multiply two numbers |
+| test_multiply_zero | Multiply by zero |
+| test_divide | Divide two numbers |
+| test_divide_by_zero | Division by zero error |
+| test_square | Square a number |
+| test_square_root | Square root of a number |
+| test_square_root_negative | Square root error handling |
+| test_power | Power operation |
+| test_clear | Clear operation |
+| test_get_result | Get result operation |
+| **TOTAL** | **15 Tests** |
 
 ### Test Results
-- **Total Tests:** 52
-- **Passed:** 52 ✓
+- **Total Tests:** 15
+- **Passed:** 15 ✓
 - **Failed:** 0
-- **Skipped:** 0
 - **Success Rate:** 100%
-- **Execution Time:** ~2-3 seconds
-
-### Coverage
-- **Functional Coverage:** 100%
-- **Error Handling Coverage:** 100%
-- **Edge Case Coverage:** 100%
 
 ---
 
@@ -161,32 +154,23 @@ Errors: 0
 
 ### Example 1: Addition Test
 ```python
-def test_add_positive_numbers(self):
-    """Test adding two positive numbers."""
+def test_add(self):
     result = self.calc.add(5, 3)
     self.assertEqual(result, 8)
 ```
 
 ### Example 2: Error Handling Test
 ```python
-def test_divide_by_zero_raises_exception(self):
-    """Test that dividing by zero raises ValueError."""
+def test_divide_by_zero(self):
     with self.assertRaises(ValueError):
         self.calc.divide(10, 0)
 ```
 
-### Example 3: Integration Test
+### Example 3: Square Root Test
 ```python
-def test_multiple_operations_sequence(self):
-    """Test performing multiple operations in sequence."""
-    self.calc.add(10, 5)
-    self.assertEqual(self.calc.get_result(), 15)
-    
-    self.calc.multiply(self.calc.get_result(), 2)
-    self.assertEqual(self.calc.get_result(), 30)
-    
-    self.calc.divide(self.calc.get_result(), 3)
-    self.assertEqual(self.calc.get_result(), 10)
+def test_square_root(self):
+    result = self.calc.square_root(16)
+    self.assertEqual(result, 4.0)
 ```
 
 ---
@@ -194,16 +178,22 @@ def test_multiple_operations_sequence(self):
 ## Test Results Summary
 
 ### Test Execution Results
-✓ **Addition:** 7/7 passed  
-✓ **Subtraction:** 7/7 passed  
-✓ **Multiplication:** 7/7 passed  
-✓ **Division:** 7/7 passed  
-✓ **Square:** 5/5 passed  
-✓ **Square Root:** 6/6 passed  
-✓ **Power:** 6/6 passed  
-✓ **Clear:** 2/2 passed  
-✓ **Result Persistence:** 2/2 passed  
-✓ **Integration:** 2/2 passed  
+✓ **All 15 tests passed** ✓
+
+- test_add - PASSED
+- test_add_negative - PASSED
+- test_subtract - PASSED
+- test_subtract_negative - PASSED
+- test_multiply - PASSED
+- test_multiply_zero - PASSED
+- test_divide - PASSED
+- test_divide_by_zero - PASSED
+- test_square - PASSED
+- test_square_root - PASSED
+- test_square_root_negative - PASSED
+- test_power - PASSED
+- test_clear - PASSED
+- test_get_result - PASSED
 
 ### Overall Status
 **ALL TESTS PASSED** ✓
